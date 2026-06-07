@@ -3,21 +3,25 @@ return {
     'stevearc/conform.nvim',
     config = function()
       require('conform').setup({
-        formatters_by_ft = {
-          lua        = { 'stylua' },
-          python     = { 'black' },
-          go         = { 'gofmt' },
-          cs         = { 'csharpier' },
-          typescript = { 'prettier' },
-          javascript = { 'prettier' },
-          html       = { 'prettier' },
-          css        = { 'prettier' },
-          json       = { 'prettier' },
-          jsonc      = { 'prettier' },
-          yaml       = { 'prettier' },
-          markdown   = { 'prettier' },
-          sql        = { 'sqlfmt' },
-        },
+          formatters_by_ft = {
+              lua        = { 'stylua' },
+              python     = { 'black' },
+              go         = { 'gofmt' },
+              cs         = { 'csharpier' },
+              typescript = { 'prettier' },
+              javascript = { 'prettier' },
+              html       = { 'prettier' },
+              css        = { 'prettier' },
+              json       = { 'prettier' },
+              jsonc      = { 'prettier' },
+              yaml       = { 'prettier' },
+              markdown   = { 'prettier' },
+              sql        = { 'sqlfmt' },
+              c    = { 'clang_format' },
+              cpp  = { 'clang_format' },
+              rust = { 'rustfmt' },
+              zig  = { 'zigfmt' },
+          },
       })
 
       -- хоткей: <leader>f — форматировать файл

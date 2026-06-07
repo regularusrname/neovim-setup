@@ -14,7 +14,7 @@ return {
                 'dockerfile',
                 'sql',
                 'c_sharp',
-                'c', 'cpp', 'rust',  -- была пропущена запятая
+                'c', 'cpp', 'rust', 'zig', -- была пропущена запятая
                 'go', 'gomod', 'gosum', 'gotmpl',
                 'json',  'yaml', 'toml', 'ini', 'xml', 
             })

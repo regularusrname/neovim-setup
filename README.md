@@ -214,7 +214,7 @@ Installed via Mason:
 - Go (for Go development)
 - Zig toolchain (for Zig development)
 - Rust toolchain / rustup (for Rust development)
-- [JetBrainsMono Nerd Font](https://www.nerdfonts.com/)
+- [JetBrainsMono Nerd Font](https://www.nerdfonts.com/) (or another Nerd font)
 
 ## Installation
 

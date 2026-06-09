@@ -1,30 +1,3 @@
--- lua/plugins/rose-pine.lua
-
-function enable_transparency()
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-end
-
--- return {
---     {
---         "rose-pine/neovim",
---         name = "rose-pine",
---         config = function()
---             vim.cmd("colorscheme rose-pine")
---             --enable_transparency()
---             vim.api.nvim_set_hl(0, 'Cursor', { reverse = true })
---             vim.api.nvim_set_hl(0, 'lCursor', { reverse = true })
---         end
---     },
---     {
---         "nvim-lualine/lualine.nvim",
---         dependencies = { 'nvim-tree/nvim-web-devicons' },
---         opts = {
---             theme = "rose-pine",
---         }
---     },
--- }
-
-
 return {
     {
         "rebelot/kanagawa.nvim",
@@ -34,7 +7,6 @@ return {
                 variant = 'wave'
             })
             vim.cmd("colorscheme kanagawa-wave")
-            --enable_transparency()
             vim.api.nvim_set_hl(0, 'Cursor', { reverse = true })
             vim.api.nvim_set_hl(0, 'lCursor', { reverse = true })
             vim.api.nvim_set_hl(0, 'IblIndent',   { fg = '#2a2a37' })

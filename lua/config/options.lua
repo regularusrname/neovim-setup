@@ -22,9 +22,3 @@ vim.opt.listchars = {
 vim.api.nvim_set_hl(0, 'SpecialKey', { fg = '#2d3149' })  -- приглушённый синеватый
 vim.api.nvim_set_hl(0, 'IblIndent',  { fg = '#2d3149' })  -- линии отступов
 vim.api.nvim_set_hl(0, 'IblScope',   { fg = '#54546d' })  -- текущий scope чуть светлее
-
--- for rose-pine
--- vim.api.nvim_set_hl(0, 'SpecialKey', { fg = '#3b3552' })  -- приглушённый цвет
---
--- vim.api.nvim_set_hl(0, 'IblIndent', { fg = '#3b3552' })
--- vim.api.nvim_set_hl(0, 'IblScope',  { fg = '#6e6a86' })

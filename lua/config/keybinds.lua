@@ -1,7 +1,5 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>cd", '<cmd>Oil<CR>', { desc = 'Open file explorer' })
--- vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
-
 
 -- вкладки
 vim.keymap.set('n', '<leader>tn', ':tabnew<CR>',  { desc = 'Tab: New' })

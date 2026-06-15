@@ -82,6 +82,7 @@ Installed via Mason:
 | `clangd` | C/C++ |
 | `rustfmt` | Rust |
 | `zigfmt` | Zig |
+| `delve` | Go debugger |
 
 ## Keybindings
 
@@ -174,6 +175,9 @@ Installed via Mason:
 | `<F12>` | Step out |
 | `<leader>b` | Toggle breakpoint |
 | `<leader>du` | Toggle DAP UI |
+| `<leader>=` | Hover value under cursor |
+| `<leader>dw` | Open Watches |
+| `<leader>db` | Open Brealpoints |
 
 ### Tests (neotest)
 
@@ -212,6 +216,7 @@ Installed via Mason:
 - Node.js + npm (for some LSP servers)
 - .NET SDK (for C# development)
 - Go (for Go development)
+- delve (Debugger for Go)
 - Zig toolchain (for Zig development)
 - Rust toolchain / rustup (for Rust development)
 - [JetBrainsMono Nerd Font](https://www.nerdfonts.com/) (or another Nerd font)
@@ -226,7 +231,7 @@ nvim
 On first launch lazy.nvim will install all plugins automatically. Then install LSP servers:
 
 ```
-:MasonInstall roslyn clangd rust-analyzer zls clang-format
+:MasonInstall roslyn clangd rust-analyzer zls clang-format delve
 ```
 
 All other servers from `ensure_installed` will be installed automatically.

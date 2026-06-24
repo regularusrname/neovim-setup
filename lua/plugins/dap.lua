@@ -60,6 +60,10 @@ return {
 						-- ищет dll в стандартном месте сборки
 						return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
 					end,
+                    args = function()
+                        local args = vim.fn.input('Arguments: ')
+                        return vim.split(args, ' ')
+                    end,
 				},
 				{
 					type = "coreclr",

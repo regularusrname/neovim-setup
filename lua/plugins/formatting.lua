@@ -21,6 +21,7 @@ return {
               cpp  = { 'clang_format' },
               rust = { 'rustfmt' },
               zig  = { 'zigfmt' },
+              odin = { 'odinfmt' },
           },
       })
 

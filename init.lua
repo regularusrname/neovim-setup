@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd('FileType', {
       'cs', 'python', 'lua', 'typescript',
       'javascript', 'html', 'css', 'json',
       'jsonc', 'yaml', 'rust', 'c', 'cpp',
-      'zig',
+      'zig', 'odin', 
   },
   callback = function()
     vim.bo.tabstop = 4

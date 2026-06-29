@@ -1,6 +1,6 @@
 # Neovim Setup
 
-Personal Neovim configuration for backend development (.NET, Go) with frontend support.
+Personal Neovim configuration for backend development (.NET, Go, C, Rust, Zig, Odin) with frontend support.
 
 **Neovim version:** 0.12+
 
@@ -71,6 +71,9 @@ Installed via Mason:
 |---|---|
 | `roslyn` | C# / .NET |
 | `gopls` | Go |
+| `clangd` | C / C++ |
+| `rust_analyzer` | Rust |
+| `zls` | Zig |
 | `pyright` | Python |
 | `lua_ls` | Lua |
 | `ts_ls` | TypeScript / JavaScript |
@@ -79,10 +82,30 @@ Installed via Mason:
 | `dockerls` | Dockerfile |
 | `yamlls` | YAML |
 | `jsonls` | JSON |
-| `clangd` | C/C++ |
-| `rustfmt` | Rust |
-| `zigfmt` | Zig |
 | `delve` | Go debugger |
+
+Installed manually:
+
+| Server | Language |
+|---|---|
+| `ols` | Odin |
+
+## Formatters
+
+Configured via conform.nvim:
+
+| Formatter | Language | Installation |
+|---|---|---|
+| `csharpier` | C# | Mason |
+| `gofmt` | Go | Go toolchain |
+| `clang-format` | C / C++ | Mason |
+| `rustfmt` | Rust | Rust toolchain |
+| `zigfmt` | Zig | Zig toolchain |
+| `odinfmt` | Odin | Odin toolchain |
+| `black` | Python | Mason |
+| `stylua` | Lua | Mason |
+| `prettier` | TypeScript, JavaScript, HTML, CSS, JSON, YAML, Markdown | Mason |
+| `sqlfmt` | SQL | Mason |
 
 ## Keybindings
 
@@ -177,7 +200,7 @@ Installed via Mason:
 | `<leader>du` | Toggle DAP UI |
 | `<leader>=` | Hover value under cursor |
 | `<leader>dw` | Open Watches |
-| `<leader>db` | Open Brealpoints |
+| `<leader>db` | Open Breakpoints |
 
 ### Tests (neotest)
 
@@ -215,11 +238,11 @@ Installed via Mason:
 - Git
 - Node.js + npm (for some LSP servers)
 - .NET SDK (for C# development)
-- Go (for Go development)
-- delve (Debugger for Go)
+- Go toolchain (for Go development)
 - Zig toolchain (for Zig development)
 - Rust toolchain / rustup (for Rust development)
-- [JetBrainsMono Nerd Font](https://www.nerdfonts.com/) (or another Nerd font)
+- Odin toolchain (for Odin development)
+- [JetBrainsMono Nerd Font](https://www.nerdfonts.com/) (or another Nerd Font)
 
 ## Installation
 
@@ -228,10 +251,21 @@ git clone https://github.com/noneuclideanGarage/neovim-setup ~/.config/nvim
 nvim
 ```
 
-On first launch lazy.nvim will install all plugins automatically. Then install LSP servers:
+On first launch lazy.nvim will install all plugins automatically. Then install LSP servers and formatters via Mason:
 
 ```
-:MasonInstall roslyn clangd rust-analyzer zls clang-format delve
+:MasonInstall roslyn clangd rust-analyzer zls clang-format delve black stylua prettier sqlfmt
 ```
 
-All other servers from `ensure_installed` will be installed automatically.
+All other servers from `ensure_installed` will be installed automatically by mason-lspconfig.
+
+### Odin Language Server (ols)
+
+`ols` is not available in Mason and must be built manually:
+
+```bash
+git clone https://github.com/DanielGavin/ols
+cd ols
+./build.sh
+sudo cp ols /usr/local/bin/
+```

@@ -31,6 +31,7 @@ return {
 				"toml",
 				"ini",
 				"xml",
+                "odin",
 			})
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = {
@@ -60,6 +61,7 @@ return {
 					"ini",
 					"xml",
 					"dotenv",
+                    "odin",
 				},
 				callback = function()
 					vim.treesitter.start()

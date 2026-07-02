@@ -17,10 +17,10 @@ Personal Neovim configuration for backend development (.NET, Go, C, Rust, Zig, O
     │   └── diagnostics.lua   # LSP diagnostics & keybindings
     └── plugins/
         ├── tree-sitter.lua
-        ├── treesitter-textobjects.lua
-        ├── treesitter-context.lua
+        ├── telescope.lua
         ├── mason.lua
         ├── lsp.lua
+        ├── lualine.lua
         ├── roslyn.lua
         ├── completion.lua
         ├── formatting.lua
@@ -29,9 +29,7 @@ Personal Neovim configuration for backend development (.NET, Go, C, Rust, Zig, O
         ├── bufferline.lua
         ├── indent-blankline.lua
         ├── rainbow-delimiters.lua
-        ├── autopairs.lua
         ├── markdown.lua
-        ├── markdown-preview.lua
         ├── dap.lua
         └── neotest.lua
 ```
@@ -44,6 +42,7 @@ Personal Neovim configuration for backend development (.NET, Go, C, Rust, Zig, O
 | [neovim-treesitter/nvim-treesitter](https://github.com/neovim-treesitter/nvim-treesitter) | Syntax parsing & highlighting |
 | [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) | Text objects for functions, classes |
 | [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) | Show current function/class context |
+| [telescope](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy finder |
 | [mason.nvim](https://github.com/williamboman/mason.nvim) | LSP server manager |
 | [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) | Mason + lspconfig bridge |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LSP configuration |
@@ -62,6 +61,8 @@ Personal Neovim configuration for backend development (.NET, Go, C, Rust, Zig, O
 | [nvim-dap](https://github.com/mfussenegger/nvim-dap) | Debug Adapter Protocol |
 | [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) | DAP UI |
 | [neotest](https://github.com/nvim-neotest/neotest) | Test runner |
+| [gitsigns](https://github.com/lewis6991/gitsigns.nvim) | Git integration for buffers |
+| [todo-comments](https://github.com/folke/todo-comments.nvim) | Highlight todo comments |
 
 ## LSP Servers
 
@@ -147,7 +148,7 @@ Configured via conform.nvim:
 | `gr` | References |
 | `K` | Hover documentation |
 | `<leader>rn` | Rename symbol |
-| `<leader>ca` | Code actions |
+| `<leader>a` | Code actions |
 | `<C-o>` | Jump back (after gd) |
 | `<C-i>` | Jump forward |
 

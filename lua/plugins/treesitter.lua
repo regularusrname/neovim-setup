@@ -21,7 +21,7 @@ return {
 				"c",
 				"cpp",
 				"rust",
-				"zig", -- была пропущена запятая
+				"zig",
 				"go",
 				"gomod",
 				"gosum",
@@ -50,7 +50,7 @@ return {
 					"c_sharp",
 					"c",
 					"cpp",
-					"rust", -- была пропущена запятая
+					"rust",
 					"go",
 					"gomod",
 					"gosum",

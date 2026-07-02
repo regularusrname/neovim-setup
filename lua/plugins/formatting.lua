@@ -25,7 +25,6 @@ return {
           },
       })
 
-      -- хоткей: <leader>f — форматировать файл
       vim.keymap.set({ 'n', 'v' }, '<leader>f', function()
         require('conform').format({ async = true })
       end, { desc = 'Format file' })

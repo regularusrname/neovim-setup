@@ -26,15 +26,31 @@ return {
 						require("lspconfig")[server_name].setup({})
 					end,
 					["lua_ls"] = function()
+						local runtime_path = vim.split(package.path, ";")
+						table.insert(runtime_path, "lua/?.lua")
+						table.insert(runtime_path, "lua/?/init.lua")
+
 						require("lspconfig").lua_ls.setup({
 							settings = {
 								Lua = {
+									runtime = {
+										version = "LuaJIT",
+										path = runtime_path,
+									},
+									workspace = {
+										library = {
+											vim.fn.expand("$VIMRUNTIME/lua"),
+											vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"),
+											vim.fn.stdpath("data") .. "/lazy", -- плагины lazy.nvim
+										},
+										checkThirdParty = false,
+									},
 									diagnostics = {
 										globals = { "vim" },
 									},
-								},
-								gopls = {
-									gofumpt = true, -- более строгий форматтер
+									telemetry = {
+										enable = false,
+									},
 								},
 							},
 						})
@@ -55,7 +71,7 @@ return {
 				filetypes = { "odin" },
 				root_markers = { "ols.json", ".git" },
 			})
-            vim.lsp.enable('ols')
+			vim.lsp.enable("ols")
 		end,
 	},
 }

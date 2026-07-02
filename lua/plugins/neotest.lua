@@ -8,13 +8,15 @@ return {
 			"Nsidorenco/neotest-vstest",
 		},
 		config = function()
+            vim.g.neotest_vstest = {
+                dap_settings = {
+                    type = "netcoredbg",
+                },
+            }
+
 			require("neotest").setup({
 				adapters = {
-					require("neotest-vstest")({
-						dap = {
-							adapter_name = "coreclr", -- тот же адаптер что в dap.lua
-						},
-					}),
+					require("neotest-vstest"),
 				},
 			})
 

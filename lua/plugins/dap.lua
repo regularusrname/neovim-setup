@@ -45,47 +45,85 @@ return {
 			})
 
 			-- настройка netcoredbg для C#
-			dap.adapters.coreclr = {
+			dap.adapters.netcoredbg = {
 				type = "executable",
 				command = vim.fn.stdpath("data") .. "/mason/bin/netcoredbg",
 				args = { "--interpreter=vscode" },
 			}
 
-            dap.adapters.netcoredbg = dap.adapters.coreclr
+			dap.adapters.coreclr = dap.adapters.netcoredbg
 
 			dap.configurations.cs = {
 				{
-					type = "coreclr",
-					name = "Launch",
+					type = "netcoredbg",
+					name = "Launch DLL",
 					request = "launch",
 					program = function()
-						-- ищет dll в стандартном месте сборки
 						return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
 					end,
-                    args = function()
-                        local args = vim.fn.input('Arguments: ')
-                        return vim.split(args, ' ')
-                    end,
+					args = function()
+						local args = vim.fn.input("Arguments: ")
+						if args == "" then
+							return {}
+						end
+
+						return vim.split(args, " ", { trimempty = true })
+					end,
+					cwd = "${workspaceFolder}",
+					stopAtEntry = false,
 				},
 				{
-					type = "coreclr",
-					name = "Launch Web App",
+					type = "netcoredbg",
+					name = "Launch ASP.NET Core",
 					request = "launch",
 					program = function()
-						return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
+						return vim.fn.input("Path to API dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
 					end,
 					env = {
 						ASPNETCORE_ENVIRONMENT = "Development",
 						ASPNETCORE_URLS = "http://localhost:5000",
 					},
 					cwd = "${workspaceFolder}",
+					stopAtEntry = false,
 				},
 				{
-					type = "coreclr",
-					name = "Attach",
+					type = "netcoredbg",
+					name = "Attach to process",
 					request = "attach",
-					processId = require("dap.utils").pick_process, -- покажет список процессов
+					processId = require("dap.utils").pick_process,
 				},
+				-- {
+				-- 	type = "coreclr",
+				-- 	name = "Launch",
+				-- 	request = "launch",
+				-- 	program = function()
+				-- 		-- ищет dll в стандартном месте сборки
+				-- 		return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
+				-- 	end,
+				-- 	args = function()
+				-- 		local args = vim.fn.input("Arguments: ")
+				-- 		return vim.split(args, " ")
+				-- 	end,
+				-- },
+				-- {
+				-- 	type = "coreclr",
+				-- 	name = "Launch Web App",
+				-- 	request = "launch",
+				-- 	program = function()
+				-- 		return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
+				-- 	end,
+				-- 	env = {
+				-- 		ASPNETCORE_ENVIRONMENT = "Development",
+				-- 		ASPNETCORE_URLS = "http://localhost:5000",
+				-- 	},
+				-- 	cwd = "${workspaceFolder}",
+				-- },
+				-- {
+				-- 	type = "coreclr",
+				-- 	name = "Attach",
+				-- 	request = "attach",
+				-- 	processId = require("dap.utils").pick_process, -- покажет список процессов
+				-- },
 			}
 
 			dap.adapters.delve = {
@@ -131,7 +169,7 @@ return {
 			vim.keymap.set("n", "<leader>db", function()
 				require("dapui").open({ reset = false, layout = nil, type = "breakpoints" })
 			end, { desc = "Debug: Breakpoints" })
-            vim.keymap.set('n', '<leader>=', require('dap.ui.widgets').hover, { desc = 'Debug: Hover value' })
+			vim.keymap.set("n", "<leader>=", require("dap.ui.widgets").hover, { desc = "Debug: Hover value" })
 		end,
 	},
 }
